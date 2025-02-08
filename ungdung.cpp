@@ -167,6 +167,7 @@ int main()
 	}
 	cout << endl;
 	int cnt = 0;	
+	int skipcnt = 0;
 	cout << "-----------------------------------------" << endl;
 	cout << "\t" << "\t"  << "MENU : " << endl;
 	cout << "\t" << "* Choose A/B/C/D "<< endl << "\t" << "* S to skip" << endl;
@@ -189,6 +190,7 @@ int main()
 		}
 		if (ques[i].userdapan == 's' || ques[i].userdapan == 'S')
 		{
+			skipcnt++;
 			cout << endl;
 			continue;
 		}
@@ -221,6 +223,11 @@ int main()
 			{
 				cnt++;
 			}
+			if (ques[i].userdapan == 's' || ques[i].userdapan == 'S')
+			{
+				skipcnt++;
+				break;
+			}
 		}
 	}
 	cout << endl;
@@ -236,7 +243,7 @@ int main()
 			cout << endl;
 			int num;
 			char choice;
-			cout << "Chon cau hoi muon doi dap an (neu khong muon doi nua, nhan 0) ";
+			cout << "Chon cau hoi muon doi dap an (neu khong muon doi nua, nhan 0) " << endl;
 			cout << "Vui long chon can than. Chon sai se khong tinh diem : ";
 			cin >> num;
 			if (num == 0)
@@ -254,7 +261,11 @@ int main()
 				{
 					cnt++;
 				}
-				else
+				else if (toupper(choice) != toupper(ques[num - 1].dapan) && skipcnt	>= 1)
+				{
+					continue;
+				}
+				else if (toupper(choice) != toupper(ques[num - 1].dapan))
 				{
 					cnt--;
 				}
