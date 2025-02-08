@@ -254,6 +254,10 @@ int main()
 				{
 					cnt++;
 				}
+				else
+				{
+					cnt--;
+				}
 			}
 			if (ques[num - 1].userdapan == 'e' || ques[num - 1].userdapan == 'E')
 			{
