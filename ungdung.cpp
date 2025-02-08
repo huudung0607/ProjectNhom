@@ -268,6 +268,10 @@ int main()
 				else if (toupper(choice) != toupper(ques[num - 1].dapan))
 				{
 					cnt--;
+					if (cnt < 0)
+					{
+						cnt = 0;
+					}
 				}
 			}
 			if (ques[num - 1].userdapan == 'e' || ques[num - 1].userdapan == 'E')
@@ -307,6 +311,8 @@ int main()
 		<< setw(2) << setfill('0') << endTm.tm_min << ':'
 		<< setw(2) << setfill('0') << endTm.tm_sec << endl;
 	cout << "-----------------------------------------" << endl;
+	cout << endl;
+	cout << endl;
 	//
 	// 
 	// 
