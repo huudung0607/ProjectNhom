@@ -89,7 +89,7 @@ int main()
 		if (luachon == 'g' || luachon == 'G')
 		{
 			int num;
-			cout << "Nhap thong tin muon sua, nhan 0 de thoat : ";
+			cout << "Nhap thong tin muon sua, nhan 0 de tien hanh lam bai : ";
 			cin >> num;
 			cin.ignore();
 			if (num == 0)
@@ -127,7 +127,7 @@ int main()
 			else
 			{
 				cout << "LUA CHON KHONG HOP LE : " << endl;
-				cout << "Vui long nhap lai : ";
+				cout << "Vui long nhap lai : " << endl;
 			}
 		}
 	}
@@ -181,7 +181,7 @@ int main()
 		cout << ques[i].cauhoi << endl;
 		cout << ques[i].traloi << endl;
 		cout << endl;
-		cout << "Your choice : " << endl << "S to skip : ";
+		cout << "Your choice or press 'S' to skip : ";
 		cin >> ques[i].userdapan;
 		if (toupper(ques[i].userdapan) == toupper(ques[i].dapan))
 		{
@@ -199,7 +199,7 @@ int main()
 			cin >> num;
 			cout << ques[num - 1].cauhoi << endl;
 			cout << ques[num - 1].traloi << endl;
-			cout << "Your choice : " << "or " << "S to skip : ";
+			cout << "Your choice or press 'S' to skip :";
 			cin >> ques[num - 1].userdapan;
 			if (toupper(ques[num - 1].userdapan) == toupper(ques[i - 1].dapan))
 			{
@@ -215,7 +215,7 @@ int main()
 			cout << "\t" << "\t" << "VUI LONG NHAP LAI " << endl;
 			cout << ques[i].cauhoi << endl;
 			cout << ques[i].traloi << endl;
-			cout << "Your choice :  or S to skip :  ";
+			cout << "Your choice or press 'S' to skip :";
 			cin >> ques[i].userdapan;
 			if (toupper(ques[i].userdapan) == toupper(ques[i].dapan))
 			{
