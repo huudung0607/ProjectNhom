@@ -148,6 +148,7 @@ int main()
 	if (!file.is_open())
 	{
 		cout << "Cannot open file ";
+		return 0;
 	}
 	string line;
 	int dem = 0;
@@ -162,12 +163,13 @@ int main()
 		q.cauhoi = questions[i];
 		q.traloi = questions[i + 1] + "\n" + questions[i + 2] + "\n" + questions[i + 3] + "\n"
 			+ questions[i + 4];
-		q.dapan = questions[i + 5][0];
+		q.dapan = questions[i + 5][0]; 
 		ques[demques++] = q;
 	}
 	cout << endl;
 	int cnt = 0;	
-	cout << "\t" << "    " << "MENU : " << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "\t" << "\t"  << "MENU : " << endl;
 	cout << "\t" << "* Choose A/B/C/D "<< endl << "\t" << "* S to skip" << endl;
 	cout << "\t" << "* X to change the answers " << endl;
 	cout << endl;
@@ -190,7 +192,7 @@ int main()
 		}
 		else if (ques[i].userdapan == 'x' || ques[i].userdapan == 'X')
 		{
-			int num;
+			int num; 
 			cout << "Chon cau hoi muon doi dap an : ";
 			cin >> num;
 			cout << ques[num - 1].cauhoi << endl;
@@ -201,7 +203,7 @@ int main()
 			{
 				cnt++;
 			}
-			i = num - 1;
+			i = num - 1; 
 		}
 		while (ques[i].userdapan != 'a' && ques[i].userdapan != 'A' &&  
 			ques[i].userdapan != 'b' && ques[i].userdapan != 'B' && ques[i].userdapan != 'c' 
@@ -270,6 +272,7 @@ int main()
 	double elapsedSeconds = difftime(endTime, startTime);
 	//thoi gian bat dau
 	cout << endl;
+	cout << "-----------------------------------------" << endl;
 	cout << "Start time: "
 		<< 1900 + startTm.tm_year << '-'
 		<< setw(2) << setfill('0') << 1 + startTm.tm_mon << '-'
@@ -285,12 +288,20 @@ int main()
 		<< setw(2) << setfill('0') << endTm.tm_hour << ':'
 		<< setw(2) << setfill('0') << endTm.tm_min << ':'
 		<< setw(2) << setfill('0') << endTm.tm_sec << endl;
+	cout << "-----------------------------------------" << endl;
 	//
 	// 
 	// 
 	//Hien thong tin
+	cout << "-----------------------------------------" << endl;
+	cout << "THONG TIN SINH VIEN :" << endl;
+	cout << "1. Ho va ten : " << sv1.hoten << endl;
+	cout << "2. Lop : " << sv1.lop << endl;
+	cout << "3. Ngay sinh : " << sv1.ns << endl;
+	cout << "4. MSSV : " << sv1.mssv << endl;
 	cout << "Thoi gian lam bai: " << elapsedSeconds << " seconds" << endl;
 	cout << "YOUR NUMBER OF CORRECT ANSWERS : " << cnt << "/" << demques << endl;
 	cout << "TOTAL : " << fixed << setprecision(2) << (double)cnt / demques * 10 << " MARKS" << endl;
+	cout << "-----------------------------------------" << endl;
 	file.close();
 }
