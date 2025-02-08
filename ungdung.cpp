@@ -5,6 +5,7 @@
 #include <ctime>
 #include <iomanip>
 #include <sstream>
+#include <map>
 using namespace std;
 struct sinhvien
 {
@@ -77,7 +78,8 @@ int main()
 	cout << "4. MSSV : " << sv1.mssv << endl;
 	cout << "-----------------------------------------" << endl;
 	cout << "Nhan G de sua thong tin " << endl;
-	cout << "Nhan T de tien hanh lam bai : ";
+	cout << "Nhan T de tien hanh lam bai : " << endl;
+	cout << "\t" << "\t" << "\t" << "HAY DOC DE VA NGHI THAT KI TRUOC KHI CHON DAP AN ! " << endl;
 	char luachon;
 	cin >> luachon;
 	while (luachon == 't' || luachon == 'g' ||  luachon == 'T' || luachon == 'G')
@@ -166,12 +168,21 @@ int main()
 		ques[demques++] = q;
 	}
 	cout << endl;
+	cout << "\t" << "\t" << "\t" << "   " << "-----------------------------------------" << endl;
+	cout << "\t" << "\t" << "\t" << "HAY DOC DE VA NGHI THAT KI TRUOC KHI CHON DAP AN ! " << endl;
+	cout << "\t" << "\t" << "\t" << "HAY DOC DE VA NGHI THAT KI TRUOC KHI CHON DAP AN ! " << endl;
+	cout << "\t" << "\t" << "\t" << "HAY DOC DE VA NGHI THAT KI TRUOC KHI CHON DAP AN ! " << endl;
+	cout << "\t" << "\t" << "\t" << "HAY DOC DE VA NGHI THAT KI TRUOC KHI CHON DAP AN ! " << endl;
+	cout << "\t" << "\t" << "\t" << "   " << "-----------------------------------------" << endl;
 	int cnt = 0;	
 	int skipcnt = 0;
+	cout << endl;
+	cout << endl;
 	cout << "-----------------------------------------" << endl;
 	cout << "\t" << "\t"  << "MENU : " << endl;
 	cout << "\t" << "* Choose A/B/C/D "<< endl << "\t" << "* S to skip" << endl;
 	cout << "\t" << "* X to change the answers " << endl;
+	cout << "-----------------------------------------" << endl;
 	cout << endl;	
 	time_t startTime = time(0);
 	tm startTm;
@@ -233,9 +244,11 @@ int main()
 	cout << endl;
 	cout << "\t" << "\t" << "\t" << "\t" << "\t" << "\t"  << "Double check ? " << endl;
 	cout << "\t" << "\t" << "Choose X to change the answers : ";
-	cout << "\t" << "\t" << "Choose E to finish ";
+	cout << "\t" << "\t" << "Choose E to finish : " << endl;
+	cout << "* Ban chi co the sua dap an 1 lan ! ";
 	char choice;
 	cin >> choice;
+	map<int, int> mp;
 	while (true)
 	{
 		if (choice == 'x' || choice == 'X')
@@ -244,8 +257,15 @@ int main()
 			int num;
 			char choice;
 			cout << "Chon cau hoi muon doi dap an (neu khong muon doi nua, nhan 0) " << endl;
-			cout << "Vui long chon can than. Chon sai se khong tinh diem : ";
+			cout << "Vui long chon can than. Chon sai se khong tinh diem : " << endl;
+			cout << "MOI CAU CHI DUOC SUA 1 LAN !, neu khong se ket thuc bai thi " << endl;
+			cout << "Your choice : ";
 			cin >> num;
+			mp[num]++;
+			if (mp[num] > 1)
+			{
+				break;
+			}
 			if (num == 0)
 			{
 				break;
@@ -255,6 +275,12 @@ int main()
 			cout << ques[num - 1].traloi << endl;
 			cout << "Your choice : ";
 			cin >> choice;
+			if (choice != 'a' && choice != 'A' &&
+				choice != 'b' && choice != 'B' && choice != 'c'
+				&& choice != 'C' && choice != 'd' && choice != 'D')
+			{
+				cout << "VUI LONG NHAP LAI : ";
+			}
 			if (toupper(ques[num - 1].userdapan) != toupper(choice))
 			{
 				if (toupper(choice) == toupper(ques[num - 1].dapan))
