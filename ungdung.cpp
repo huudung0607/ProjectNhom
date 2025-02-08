@@ -128,7 +128,6 @@ int main()
 			{
 				cout << "LUA CHON KHONG HOP LE : " << endl;
 				cout << "Vui long nhap lai : ";
-				cin >> num;
 			}
 		}
 	}
@@ -172,7 +171,10 @@ int main()
 	cout << "\t" << "\t"  << "MENU : " << endl;
 	cout << "\t" << "* Choose A/B/C/D "<< endl << "\t" << "* S to skip" << endl;
 	cout << "\t" << "* X to change the answers " << endl;
-	cout << endl;
+	cout << endl;	
+	time_t startTime = time(0);
+	tm startTm;
+	localtime_s(&startTm, &startTime);
 	for (int i = 0; i < demques; i++)
 	{
 		cout << endl;
@@ -197,7 +199,7 @@ int main()
 			cin >> num;
 			cout << ques[num - 1].cauhoi << endl;
 			cout << ques[num - 1].traloi << endl;
-			cout << "Your choice : " << endl << "S to skip : ";
+			cout << "Your choice : " << "or " << "S to skip : ";
 			cin >> ques[num - 1].userdapan;
 			if (toupper(ques[num - 1].userdapan) == toupper(ques[i - 1].dapan))
 			{
@@ -263,9 +265,6 @@ int main()
 	//
 	// 
 	//ham tinh thoi gian
-	time_t startTime = time(0);
-	tm startTm;
-	localtime_s(&startTm, &startTime);
 	time_t endTime = time(0);
 	tm endTm;
 	localtime_s(&endTm, &endTime);
@@ -295,9 +294,9 @@ int main()
 	//Hien thong tin
 	cout << "-----------------------------------------" << endl;
 	cout << "THONG TIN SINH VIEN :" << endl;
-	cout << "1. Ho va ten : " << sv1.hoten << endl;
+	cout << "1. Ho va ten : " << chuanhoaTen(sv1.hoten) << endl;
 	cout << "2. Lop : " << sv1.lop << endl;
-	cout << "3. Ngay sinh : " << sv1.ns << endl;
+	cout << "3. Ngay sinh : " << chuanhoaNS(sv1.ns) << endl;
 	cout << "4. MSSV : " << sv1.mssv << endl;
 	cout << "Thoi gian lam bai: " << elapsedSeconds << " seconds" << endl;
 	cout << "YOUR NUMBER OF CORRECT ANSWERS : " << cnt << "/" << demques << endl;
