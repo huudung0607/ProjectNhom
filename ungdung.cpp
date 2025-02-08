@@ -235,6 +235,7 @@ int main()
 		{
 			cout << endl;
 			int num;
+			char choice;
 			cout << "Chon cau hoi muon doi dap an (neu khong muon doi nua, nhan 0) ";
 			cout << "Vui long chon can than. Chon sai se khong tinh diem : ";
 			cin >> num;
@@ -246,10 +247,13 @@ int main()
 			cout << ques[num - 1].cauhoi << endl;
 			cout << ques[num - 1].traloi << endl;
 			cout << "Your choice : ";
-			cin >> ques[num - 1].userdapan;
-			if (toupper(ques[num - 1].userdapan) == toupper(ques[num - 1].dapan))
+			cin >> choice;
+			if (toupper(ques[num - 1].userdapan) != toupper(choice))
 			{
-				cnt++;
+				if (toupper(choice) == toupper(ques[num - 1].dapan))
+				{
+					cnt++;
+				}
 			}
 			if (ques[num - 1].userdapan == 'e' || ques[num - 1].userdapan == 'E')
 			{
