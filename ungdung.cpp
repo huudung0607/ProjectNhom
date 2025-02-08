@@ -50,7 +50,8 @@ string chuanhoaNS(string s)
 		tmp.insert(3, "0");
 	}
 	return tmp;
-}
+}	
+sinhvien sv1;
 int main()
 {
 	//Nhap thong tin sv
@@ -59,7 +60,6 @@ int main()
 	//
 	cout << "-----------------------------------------" << endl;
 	cout << "NHAP THONG TIN SINH VIEN : " << endl;
-	sinhvien sv1;
 	cout << "1. Ho va ten : ";
 	getline(cin, sv1.hoten);
 	cout << "2. Lop : ";
@@ -68,16 +68,19 @@ int main()
 	getline(cin, sv1.ns);
 	cout << "4. Ma so sinh vien: ";
 	getline(cin, sv1.mssv);
+	cout << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "THONG TIN SINH VIEN : " << endl;
 	cout << "1. Ho va ten : " << chuanhoaTen(sv1.hoten) << endl;
 	cout << "2. Lop : " << sv1.lop << endl;
 	cout << "3. Ngay sinh : " << chuanhoaNS(sv1.ns) << endl;
 	cout << "4. MSSV : " << sv1.mssv << endl;
 	cout << "-----------------------------------------" << endl;
 	cout << "Nhan G de sua thong tin " << endl;
-	cout << "Nhan T de tien hanh lam bai : " << endl;
+	cout << "Nhan T de tien hanh lam bai : ";
 	char luachon;
 	cin >> luachon;
-	while (true)
+	while (luachon == 't' || luachon == 'g' ||  luachon == 'T' || luachon == 'G')
 	{
 		if (luachon == 't' || luachon == 'T')
 		{
@@ -86,23 +89,40 @@ int main()
 		if (luachon == 'g' || luachon == 'G')
 		{
 			int num;
-			cout << "Nhap thong tin muon sua : ";
+			cout << "Nhap thong tin muon sua, nhan 0 de thoat : ";
 			cin >> num;
+			cin.ignore();
+			if (num == 0)
+			{
+				break;
+			}
 			if (num == 1)
 			{
-				getline(cin, sv1.hoten);
+				string name;
+				cout << "Ho va ten : ";
+				getline(cin, name);
+				sv1.hoten = chuanhoaTen(name);
 			}
 			else if (num == 2)
 			{
-				getline(cin, sv1.lop);
+				string lop;
+				cout << "Lop : ";
+				getline(cin, lop);
+				sv1.lop = lop;
 			}
 			else if (num == 3)
 			{
-				getline(cin, sv1.ns);
+				string ns;
+				cout << "Ngay sinh : ";
+				getline(cin, ns);
+				sv1.ns = chuanhoaNS(ns);
 			}
 			else if (num == 4)
 			{
-				getline(cin, sv1.mssv);
+				string ms;
+				cout << "MSSV : ";
+				getline(cin, ms);
+				sv1.mssv = ms;
 			}
 			else
 			{
@@ -112,6 +132,14 @@ int main()
 			}
 		}
 	}
+	cout << endl;
+	cout << "-----------------------------------------" << endl;
+	cout << "THONG TIN DA SUA : " << endl;
+	cout << "1. Ho va ten : " << sv1.hoten << endl;
+	cout << "2. Lop : " << sv1.lop << endl;
+	cout << "3. Ngay sinh : " << sv1.ns << endl;
+	cout << "4. MSSV : " << sv1.mssv << endl;
+	cout << "-----------------------------------------" << endl;
 	//
 	//
 	//
