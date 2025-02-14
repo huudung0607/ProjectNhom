@@ -23,6 +23,7 @@ struct Questions
 string questions[100];
 Questions ques[100];
 int mp[101];
+int skipques[100];
 string chuanhoaTen(string s)
 {
 	stringstream ss(s);
@@ -82,7 +83,7 @@ int main()
 	cout << "\t" << "\t" << "\t" << "HAY DOC DE VA NGHI THAT KI TRUOC KHI CHON DAP AN ! " << endl;
 	char luachon;
 	cin >> luachon;
-	while (luachon == 't' || luachon == 'g' ||  luachon == 'T' || luachon == 'G')
+	while (luachon == 't' || luachon == 'g' || luachon == 'T' || luachon == 'G')
 	{
 		if (luachon == 't' || luachon == 'T')
 		{
@@ -164,7 +165,7 @@ int main()
 		q.cauhoi = questions[i];
 		q.traloi = questions[i + 1] + "\n" + questions[i + 2] + "\n" + questions[i + 3] + "\n"
 			+ questions[i + 4];
-		q.dapan = questions[i + 5][0]; 
+		q.dapan = questions[i + 5][0];
 		ques[demques++] = q;
 	}
 	cout << endl;
@@ -174,16 +175,16 @@ int main()
 	//cout << "\t" << "\t" << "\t" << "HAY DOC DE VA NGHI THAT KI TRUOC KHI CHON DAP AN ! " << endl;
 	//cout << "\t" << "\t" << "\t" << "HAY DOC DE VA NGHI THAT KI TRUOC KHI CHON DAP AN ! " << endl;
 	//cout << "\t" << "\t" << "\t" << "   " << "-----------------------------------------" << endl;
-	int cnt = 0;	
+	int cnt = 0;
 	int skipcnt = 0;
 	cout << endl;
 	cout << endl;
 	cout << "-----------------------------------------" << endl;
-	cout << "\t" << "\t"  << "MENU : " << endl;
-	cout << "\t" << "* Choose A/B/C/D "<< endl << "\t" << "* S to skip" << endl;
+	cout << "\t" << "\t" << "MENU : " << endl;
+	cout << "\t" << "* Choose A/B/C/D " << endl << "\t" << "* S to skip" << endl;
 	cout << "\t" << "* X to change the answers " << endl;
 	cout << "-----------------------------------------" << endl;
-	cout << endl;	
+	cout << endl;
 	time_t startTime = time(0);
 	tm startTm;
 	localtime_s(&startTm, &startTime);
@@ -201,7 +202,7 @@ int main()
 		}
 		if (ques[i].userdapan == 's' || ques[i].userdapan == 'S')
 		{
-			skipcnt++;
+			skipques[skipcnt++] = i + 1;
 			cout << endl;
 			continue;
 		}
@@ -240,6 +241,12 @@ int main()
 				break;
 			}
 		}
+	}
+	cout << endl;
+	cout << "SO CAU DA SKIP : ";
+	for (int i = 0; i < skipcnt; i++)
+	{
+		cout << "Cau " << skipques[i] << " ";
 	}
 	cout << endl;
 	cout << "\t" << "\t" << "\t" << "\t" << "\t" << "\t"  << "Double check ? " << endl;
